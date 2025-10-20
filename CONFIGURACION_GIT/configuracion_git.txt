@@ -1,0 +1,31 @@
+DESGLOSE DE COMANDO PARA QUE USE EL NOMBRE MAIN
+
+    git config > Configura a nivel repositorio
+
+    --global > Especifica que esta configuración es a nivel global afectando a todos los repositorios usados en el usuario actual
+
+    init.defaultBranch main > esto cambia la configuracion global al aplicar el comando git init para que cambie de master a main, ya que actualmente se conoce de esa manera
+
+    AYUDA DE GIT MEDIO LA TERMINAL
+
+    git --help Esto despliga en la terminal todas la ayudas o manuales que tiene git en inglés
+
+    COMANDO QUE DIFINE NOMBRE DE USUARIO ASOCIADO A LOS COMMITS
+
+    git config > utiliza la configuración del git
+
+    --global > indica que se aplica a nivel global
+
+    user.name bryanDuran > asocia el nombre de usuario que es el autor de los commits
+
+    COMNADO QUE DEFINE EL CORREO ASOCIADO A LOS COMMITS
+
+    git config > utiliza la configuraciones del git
+
+    --global > indica que se aplica a nivel global
+
+    user.email “bryanDuran@gmail.com” > asocia el correo del usuario que es el autor de los
+
+    COMANDO QUE MUESTRA LA CONFIGURACIÓN DEL ENTORNO DEL GIT
+
+    git config --list > Muestra la configuración completa y activa en el entrono de git esto es a nivel del sistema, global y local### EJEMPLO DE SALIDA TIPICAuser.name=BryanDuran user.email=bryanDuran@gmail.com core.editor=vim init.defaultBranch=main core.autocrlf=true
