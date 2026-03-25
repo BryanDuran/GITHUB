@@ -1,0 +1,27 @@
+git tag [-a | -s | -u <key-id>] [-f] [-m <msg> | -F <file>] [-e]
+	[(--trailer <token>[(=|:)<value>])…​]
+	<tagname> [<commit> | <object>]
+git tag -d <tagname>…​
+git tag [-n[<num>]] -l [--contains <commit>] [--no-contains <commit>]
+	[--points-at <object>] [--column[=<options>] | --no-column]
+	[--create-reflog] [--sort=<key>] [--format=<format>]
+	[--merged <commit>] [--no-merged <commit>] [<pattern>…​]
+git tag -v [--format=<format>] <tagname>…​
+
+
+
+Agregar una referencia de etiqueta en refs/tags/, a menos que -d/-l/ -vSe da Para eliminar, enumerar o verificar etiquetas.
+
+A menos que -fSe da, la etiqueta con nombre aún no debe existir.
+
+Si uno de -a, -s, o -u<key-id> se pasa, el comando Crea un objeto de etiqueta y requiere un mensaje de etiqueta. A menos que -m<msg> o -F<file> se da, se inicia un editor para que el usuario escriba En el mensaje de la etiqueta.
+
+Si -m<msg> o -F<file> o --trailer<token>[=<valor>] se da y -a, -s, y -u<key-id> están ausentes, -aEstá implícito.
+
+De lo contrario, una referencia de etiqueta que apunta directamente al objeto dado (es decir, una etiqueta ligera) se crea.
+
+Se creará un objeto de etiqueta criptográficamente firmado cuando -so -u<key-id> se utiliza. El backend de firma (GPG, X.509, SSH, etc.) es Controlado por el gpg.formatVariable de configuración, por defecto a OpenPGP. Cuando -u<key-id> no se utiliza, la identidad del committer para El usuario actual se utiliza para encontrar la clave para firmar. El Variable de configuración gpg.programSe utiliza para especificar una costumbre Firmar binario.
+
+Objetos de etiqueta (creados con -a, -s, o -u) se llaman "anotados" tags; contienen una fecha de creación, el nombre del etiquetador y el correo electrónico, a Mensaje de etiquetado y una firma criptográfica opcional. Mientras que a La etiqueta "lightweight" es simplemente un nombre para un objeto (generalmente un commit Objeto).
+
+Las etiquetas anotadas están destinadas a su lanzamiento, mientras que las etiquetas ligeras están destinadas a Para etiquetas de objetos privados o temporales. Por esta razón, un poco de git Comandos para nombrar objetos (como gitdescribe) ignorará Etiquetas ligeras por defecto.

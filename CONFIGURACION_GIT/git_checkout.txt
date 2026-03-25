@@ -1,0 +1,62 @@
+git checkout [-q] [-f] [-m] [<branch>]
+git checkout [-q] [-f] [-m] --detach [<branch>]
+git checkout [-q] [-f] [-m] [--detach] <commit>
+git checkout [-q] [-f] [-m] [[-b|-B|--orphan] <new-branch>] [<start-point>]
+git checkout <tree-ish> [--] <pathspec>…​
+git checkout <tree-ish> --pathspec-from-file=<file> [--pathspec-file-nul]
+git checkout [-f|--ours|--theirs|-m|--conflict=<style>] [--] <pathspec>…​
+git checkout [-f|--ours|--theirs|-m|--conflict=<style>] --pathspec-from-file=<file> [--pathspec-file-nul]
+git checkout (-p|--patch) [<tree-ish>] [--] [<pathspec>…​]
+
+
+
+
+gitcheckoutTiene dos modos principales:
+
+    Cambiar de rama, con gitcheckout<rama>
+
+    Restaurar una versión diferente de un archivo, por ejemplo, con gitcheckout<commit> <nombre de archivo> o gitcheckout<nombre de archivo>
+
+Vea la DESAMBIGUACIÓN DE ARGUMENTO a continuación sobre cómo Git decide cuál hacer.
+
+gitcheckout[]
+
+    Cambiar a <rama>. Esto establece la rama actual en <branch><rama> y Actualiza los archivos en tu directorio de trabajo. La compra fallará si hay cambios no comprometidos en cualquier archivo donde <branch> y Tu cometido actual tiene contenido diferente. Los cambios no comprometidos De lo contrario, manténgase.
+
+    Si no se encuentra pero existe una rama de seguimiento en Exactamente un control remoto (llámelo <remote><remote>) con un nombre coincidente y --no-guessNo se especifica, tratar como equivalente a
+
+    $ git checkout -b <rama> --track <remote>/ <rama>
+
+    Correr gitcheckoutSin especificar una rama no tiene efecto excepto Para imprimir la información de seguimiento de la rama actual.
+gitcheckout-b<new-branch> []
+
+    Crear una nueva sucursal llamada <new-branch>, iniciarla en <start-point> (por defecto al commit actual) y echa un vistazo a la nueva sucursal. Puede utilizar el --tracko --no-trackOpciones para configurar la sucursal Información de seguimiento ascendente.
+
+    Esto fallará si hay un error en la comprobación <new-branch>, para Ejemplo si revisar el commit sobrescribiría su Cambios no comprometidos.
+gitcheckout-B<ranch> []
+
+    Lo mismo que -b, excepto que si la rama ya existe Restablece <rama> al punto de inicio en lugar de fallar.
+gitcheckout--detach[]
+gitcheckout[--detach] <commit>
+
+    Lo mismo que gitcheckout<ranch>, excepto que en lugar de señalar HEADEn la sucursal, apunta HEADEn el commit ID. Consulte la sección "CABEZA DESPRENDIDA" a continuación para obtener más información.
+
+    Omitir <rama> se desprende HEADEn la punta de la rama actual.
+gitcheckout<tree-ish> [--] <pathspec>...
+gitcheckout<tree-ish> --pathspec-from-file=<file> [--pathspec-file-nul]
+
+    Reemplace los archivos y/o directorios especificados con la versión de el commit o árbol dado y añadirlos al índice (también conocido como "área de estadificación").
+
+    Por ejemplo, gitcheckoutmainfile.txtReemplazará file.txtCon la versión de main.
+gitcheckout[-f|--ours|--theirs|-m|--conflict=<style>] [--] <pathspec>...
+gitcheckout[-f|--ours|--theirs|-m|--conflict=<style>] --pathspec-from-file=<file> [--pathspec-file-nul]
+
+    Reemplace los archivos y/o directorios especificados con la versión de El índice.
+
+    Por ejemplo, si revisas un commit, edita file.txt, y entonces Decidir que esos cambios fueron un error, gitcheckoutfile.txt¿Lo hará Descartar cualquier cambio no organizado a file.txt.
+
+    Esto fallará si el archivo tiene un conflicto de fusión y aún no se ha ejecutado gitaddfile.txt(o algo equivalente) para marcarlo como resuelto. Puedes usar -fPara ignorar los archivos no fusionados en lugar de fallar, utilice --ourso --theirsPara reemplazarlos con la versión de un específico Lado de la fusión, o uso -mPara reemplazarlos con el original Resultado de fusión en conflicto.
+gitcheckout(-p|--patch) [] [--] [<pathspec>...]
+
+    Esto es similar a los dos modos anteriores, pero le permite utilizar el Interfaz interactiva para mostrar la salida "diff" y elegir cuál Hunks para usar en el resultado. Vea a continuación la descripción de --patchOpción.
+
