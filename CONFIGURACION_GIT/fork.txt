@@ -1,0 +1,5 @@
+un fork es un repositorio remoto que se encuentra en la cuenta de alguien mas que ha sido copiado a tu propia cuenta
+
+apartir de que lo hayas puesto en tu repo se queda congelado y si hay cambios ya no seran reflejados.
+
+Una entrella marca como favoritos para seguir los proyectos que te parezcan interesantes
