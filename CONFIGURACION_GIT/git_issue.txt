@@ -1,0 +1,4 @@
+Un issue es un ticket de seguimiento que permite rastrear tareas, errores y solicitudes dentro de un proyecto.
+
+
+
